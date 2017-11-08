@@ -19,7 +19,7 @@ public class User extends Player {
 	@Override
 	public Roshambizzle generateRoshambizzle() {
 		Scanner scan = new Scanner(System.in);
-		String hand = Validate.getChar(scan, "\nYour move, young sapien...(R, P, S)\n", "r", "p", "s");
+		String hand = Validate.getChar(scan, "\nYour move, young sapien...R for Rock / P for Paper / S for Scissors\n", "r", "p", "s");
 
 		switch (hand) {
 		case "r":

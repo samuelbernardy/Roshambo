@@ -9,17 +9,13 @@ import java.util.Scanner;
 
 public class RoshamboMain {
 	public static void main(String[] args) {
-		String fileLocation = null;
-
-		fileLocation = "/Users/sbernardy/eclipse-workspace/Roshambo/Music/Raiden3_Stage1V2.mid";
-		AudioPlayerMaster audioPlayerMaster = new AudioPlayerMaster();
-		audioPlayerMaster.setFileLocation(fileLocation);
-		audioPlayerMaster.play();
-		
+		//init audio
+		startApp();
+		//print intro
 		printBanner();
 
 		Scanner scan = new Scanner(System.in);
-		System.out.println("\n\n\n\nWelcome to my dojo. What is your name, young sapien?");
+		System.out.println("\n\n\n\nYou step into an elegantly decorated dojo. The Master approaches... 'What is your name, young sapien?'");
 		Player user = new User(scan.nextLine());
 		Player deAnte = new DeAnteSan();
 		Player burger = new BurgerSan();
@@ -28,8 +24,8 @@ public class RoshamboMain {
 		System.out.println("I am told you are here to duel, young " + user.getName() + "-san.");
 
 		System.out.println(
-				"\nMy protege, DeAnte-san and Burger-san, are itching for new blood. Who will you battle... or will you leave?\n");
-
+				"\n'My protege, DeAnte-san and Burger-san, are itching for new blood. Who will you battle... or will you leave?'\n");
+		//choose opponent and play level one roshambo
 		while (true) {
 			String opposeChoice = Validate.getChar(scan,
 					"\nChoose your opponent: D for deAnte-san / B for Burger-san / Q to Quit\n", "d", "b", "q");
@@ -50,21 +46,21 @@ public class RoshamboMain {
 
 			} else if ((opposeChoice.equals("q") || opposeChoice.equals("Q"))) {
 				System.out.println(
-						"\nYou will be disallowed entry the next time you show your face. Be gone with you.\n");
+						"\n'You will be disallowed entry the next time you show your face. Be gone with you.'\n");
 				return;
 			}
 
 			if (user.getWins() == 5) {
-				
+				//print master intro
 				printMaster();
 
 				System.out.println(
-						"\nYou have defeated my best, most... interesting students. But do you think you can defeat me?!?!?!");
-
+						"\n'You have defeated my best, most... interesting students. But do you think you can defeat me?!'");
+				//play master section roshambo
 				while (true) {
 
 					Player.getMasterResults(user.generateRoshambizzle(), master.generateRoshambizzle());
-
+					//print score
 					System.out.printf("%-20s %-20s\n", "Your Wins", "The Master's Wins");
 					System.out.printf("%-20s %-20s\n", "=================", "=================");
 					System.out.printf("%-20s %-20s\n", user.getWinsM(), user.getLossesM());
@@ -81,11 +77,19 @@ public class RoshamboMain {
 
 				}
 			}
-
+			//print score
 			System.out.printf("%-15s %-15s %-15s\n", "Wins", "Losses", "Draws");
 			System.out.printf("%-15s %-15s %-15s\n", "========", "========", "========");
 			System.out.printf("%-15s %-15s %-15s\n", user.getWins(), user.getLosses(), user.getTies());
 		}
+	}
+	
+	private static void startApp() {
+		String fileLocation = null;
+		fileLocation = "/Users/sbernardy/eclipse-workspace/Roshambo/Music/Raiden3_Stage1V2.mid";
+		AudioPlayerMaster audioPlayerMaster = new AudioPlayerMaster();
+		audioPlayerMaster.setFileLocation(fileLocation);
+		audioPlayerMaster.play();
 	}
 
 	private static void printLoss() {
