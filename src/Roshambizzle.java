@@ -9,10 +9,10 @@ public enum Roshambizzle {
 			return "rock";
 
 		case PAPER:
-			return "paper";			
+			return "paper";
 
 		case SCISSORS:
-			return "scissors";			
+			return "scissors";
 
 		default:
 			return "error";

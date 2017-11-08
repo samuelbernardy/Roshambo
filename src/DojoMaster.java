@@ -1,5 +1,5 @@
 
-public class DeAnteSan extends Player {
+public class DojoMaster extends Player {
 
 	@Override
 	public Roshambizzle generateRoshambizzle() {
@@ -16,5 +16,4 @@ public class DeAnteSan extends Player {
 
 		}
 	}
-
 }

@@ -27,6 +27,11 @@ public class AudioPlayerMaster implements Runnable {
 		Thread t = new Thread(this);
 		t.start();
 	}
+	@SuppressWarnings("deprecation")
+	public void stop() {
+		Thread t = new Thread(this);
+		t.stop();
+	}
 
 	public void run() {
 		while (true) {
