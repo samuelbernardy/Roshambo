@@ -76,6 +76,8 @@ public class RoshamboMain {
 					}
 
 				}
+			} else if (user.getLosses() == 10) {
+				
 			}
 			//print score
 			System.out.printf("%-15s %-15s %-15s\n", "Wins", "Losses", "Draws");
